@@ -1,0 +1,3 @@
+model,training_time_median_ms,inference_time_median_ms,model_size_bytes,model_size_kb,training_peak_memory_mb,inference_peak_memory_mb
+logistic_regression,1.507208,0.041896,2286,2.232,241.656,241.688
+random_forest,58.816459,0.778792,290905,284.087,244.781,244.922

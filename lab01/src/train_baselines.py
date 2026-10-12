@@ -23,20 +23,8 @@ def set_seeds():
     torch.cuda.manual_seed_all(SEED)
 
 
-def main():
-    set_seeds()
-
-    X, y = load_breast_cancer(return_X_y=True)
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=0.30,
-        stratify=y,
-        random_state=SEED,
-    )
-
-    models = {
+def build_models():
+    return {
         "logistic_regression": Pipeline(
             [
                 ("scaler", StandardScaler()),
@@ -54,6 +42,22 @@ def main():
             random_state=SEED,
         ),
     }
+
+
+def main():
+    set_seeds()
+
+    X, y = load_breast_cancer(return_X_y=True)
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=0.30,
+        stratify=y,
+        random_state=SEED,
+    )
+
+    models = build_models()
 
     rows = []
 
