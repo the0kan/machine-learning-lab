@@ -89,7 +89,3 @@ The attention model projects patches and then performs multiple dense projection
 1. The CNN was the most cost-effective architecture in this experiment: it achieved the highest test accuracy, 89.82%, with only 20,490 parameters because convolutional weight sharing exploits image locality efficiently.
 2. Parameter count alone did not predict runtime: the MLP had the most parameters but the lowest latency, while the attention model had fewer parameters yet the highest latency because operation type, activation movement, and access patterns also determine system cost.
 3. Profiling-tool output must be interpreted against the tool's supported operations and counting convention; THOP matched the hand calculations for MLP and CNN after converting MACs to FLOPs but substantially undercounted the Transformer encoder.
-
-## Supplementary Paper Work
-
-The manual parameter calculations and representative Linear, Conv2d, and Attention FLOPs calculations are collected in [`paper_work.md`](paper_work.md) for handwritten submission.

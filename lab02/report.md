@@ -64,7 +64,3 @@ Backward propagation was slightly slower for both widths because it performs add
 1. Learning rate had the strongest effect in the required 50-epoch budget: rates of 0.001 and 0.01 barely changed the initial loss, while 0.1 allowed the network to learn useful digit representations.
 2. The wider network used its additional capacity effectively, reaching 93.89% test accuracy at width 64 and learning rate 0.1, compared with 32.59% for width 16 at the same learning rate.
 3. Backpropagation was consistently slower than forward propagation, and both passes became more expensive as hidden width increased because their matrix multiplications involved more elements.
-
-## Supplementary Paper Work
-
-The required network design, parameter shapes, forward equations, chain-rule gradient derivation, and numerical-gradient formulas are collected in [`paper_work.md`](paper_work.md) for handwritten submission.
