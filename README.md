@@ -9,7 +9,8 @@ The repository will contain 11 laboratory assignments and a final project. Each 
 | Work | Status | Focus |
 |---|---|---|
 | [Lab 01](lab01/) | Complete | Reproducible environment, baseline models, system measurements, and deployment fit |
-| Labs 02-11 | Planned | Added as the corresponding lab instructions are released |
+| [Lab 02](lab02/) | Complete | NumPy neural network, gradient checking, hyperparameter comparison, and timing |
+| Labs 03-11 | Planned | Added as the corresponding lab instructions are released |
 | [Final project](project/) | Planned | Dataset, model, data card, model card, and system results |
 
 ## Lab 01 at a glance
@@ -97,6 +98,25 @@ Generated evidence is stored in [`lab01/results/`](lab01/results/):
 - `system_measurements.csv` - timing, model size, and peak process memory
 - `logistic_regression.joblib` and `random_forest.joblib` - fitted models
 
+## Reproduce Lab 02
+
+Open [`lab02/Machine_Learning_Lab2.ipynb`](lab02/Machine_Learning_Lab2.ipynb) with the repository's Python 3.11.8 environment and run all cells from top to bottom. The notebook performs the dataset split, forward and backward propagation checks, numerical gradient check, six training runs, accuracy comparison, and timing measurements.
+
+Refresh the environment evidence with:
+
+```bash
+python lab02/src/print_versions.py > lab02/results/versions.txt
+```
+
+Generated evidence is stored in [`lab02/results/`](lab02/results/):
+
+- `versions.txt` - Python and package versions
+- `loss_curves.png` - per-epoch cross-entropy loss for all six configurations
+- `timing_breakdown.txt` - median forward and backward times
+- `timing_breakdown.png` - visual comparison of the timing measurements
+
+See the [complete Lab 02 report](lab02/report.md) for the methodology, accuracy table, gradient-check evidence, timing interpretation, and conclusions.
+
 ## Reproducibility rules
 
 - Random seeds are fixed at 42 for Python, NumPy, and PyTorch.
@@ -112,6 +132,7 @@ The required package list pins both `mlflow==2.14.1` and `pyarrow==16.1.0`, whil
 ## Documentation
 
 - [Lab 01 report](lab01/report.md)
+- [Lab 02 report](lab02/report.md)
 - [Pinned dependencies](requirements.txt)
 
 ## Author
