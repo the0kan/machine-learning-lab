@@ -1,0 +1,33 @@
+Representative hand-calculated FLOPs
+=====================================
+
+Linear layer (MLP 784 -> 256):
+2 x 784 x 256 = 401,408 FLOPs
+
+Conv2d layer (CNN first convolution):
+2 x 3 x 3 x 1 x 16 x 28 x 28 = 225,792 FLOPs
+
+Attention encoder layer (sequence=16, d_model=64, feedforward=128):
+- QKV projections: 393,216 FLOPs
+- Attention scores: 32,768 FLOPs
+- Attention weighted values: 32,768 FLOPs
+- Output projection: 131,072 FLOPs
+- Feedforward network: 524,288 FLOPs
+- One encoder layer total: 1,114,112 FLOPs
+
+Approximate full-model totals
+-----------------------------
+- MLP: 469,504 FLOPs
+- CNN: 2,063,488 FLOPs
+- Attention: 2,329,856 FLOPs
+
+Counting convention and tool gap
+--------------------------------
+The hand calculation counts a multiply and an add as two FLOPs.
+THOP reports multiply-accumulate operations (MACs), so 2 x MACs
+matches the hand calculation for the supported MLP and CNN layers.
+THOP does not profile PyTorch TransformerEncoder internals by default.
+It therefore reports only the patch projection and classifier for the
+Attention model and also omits most of that model's parameters.
+Bias additions, activations, pooling, normalization, softmax, and
+positional additions are omitted from the representative hand totals.

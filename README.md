@@ -10,7 +10,8 @@ The repository will contain 11 laboratory assignments and a final project. Each 
 |---|---|---|
 | [Lab 01](lab01/) | Complete | Reproducible environment, baseline models, system measurements, and deployment fit |
 | [Lab 02](lab02/) | Complete | NumPy neural network, gradient checking, hyperparameter comparison, and timing |
-| Labs 03-11 | Planned | Added as the corresponding lab instructions are released |
+| [Lab 03](lab03/) | Complete | MLP, CNN, and attention accuracy, FLOPs, parameter, and latency trade-offs |
+| Labs 04-11 | Planned | Added as the corresponding lab instructions are released |
 | [Final project](project/) | Planned | Dataset, model, data card, model card, and system results |
 
 ## Lab 01 at a glance
@@ -117,6 +118,22 @@ Generated evidence is stored in [`lab02/results/`](lab02/results/):
 
 See the [complete Lab 02 report](lab02/report.md) for the methodology, accuracy table, gradient-check evidence, timing interpretation, and conclusions.
 
+## Reproduce Lab 03
+
+Fashion-MNIST is downloaded automatically to the ignored repository-level `data/` directory. Run the workflow with the pinned Python 3.11.8 environment:
+
+```bash
+python lab03/src/print_versions.py > lab03/results/versions.txt
+python lab03/src/data_loader.py
+python lab03/src/models.py
+python lab03/src/cost_analysis.py
+python lab03/src/benchmark_latency.py
+python lab03/src/train_models.py
+python lab03/src/plot_tradeoffs.py
+```
+
+The workflow implements and trains the three required architectures, compares hand-calculated FLOPs with THOP, measures batch-1 and batch-128 CPU latency, and generates the graded trade-off plots. See the [complete Lab 03 report](lab03/report.md) for the measured results and architecture analysis.
+
 ## Reproducibility rules
 
 - Random seeds are fixed at 42 for Python, NumPy, and PyTorch.
@@ -133,6 +150,7 @@ The required package list pins both `mlflow==2.14.1` and `pyarrow==16.1.0`, whil
 
 - [Lab 01 report](lab01/report.md)
 - [Lab 02 report](lab02/report.md)
+- [Lab 03 report](lab03/report.md)
 - [Pinned dependencies](requirements.txt)
 
 ## Author

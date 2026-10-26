@@ -1,0 +1,7 @@
+Platform: macOS-26.5.1-arm64-arm-64bit
+PyTorch: 2.3.1
+Device: cpu
+PyTorch CPU threads: 14
+Warm-up runs per case: 10
+Batch 1 measured runs: 100
+Batch 128 measured runs: 20
